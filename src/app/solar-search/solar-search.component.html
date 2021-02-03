@@ -1,0 +1,13 @@
+<div id="search-component">
+	<h4><label for="search-box">Solar Search</label></h4>
+
+	<input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+	<ul class="search-result">
+		<li *ngFor="let solar of solares$ | async">
+			<a routerLink="/detail/{{solar.id}}">
+				{{solar.direccion}}
+			</a>
+		</li>
+	</ul>
+</div>

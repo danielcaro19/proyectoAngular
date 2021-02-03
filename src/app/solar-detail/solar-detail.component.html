@@ -1,0 +1,32 @@
+<div *ngIf="solar != undefined">
+	<h2>Detalles de {{solar.direccion | uppercase}}</h2>
+	<div><span>Id: </span>{{solar.id}}</div>
+	<div><span>Direccion: </span>{{solar.direccion}}</div>
+	<div><span>Fecha de subida: </span>{{solar.f_subida | date:"fullDate"}}</div>
+	<div><span>Codpost: </span>{{solar.codpost}}</div>
+	<div>
+		<label
+      >Superficie:
+      <input
+        type="number"
+        [(ngModel)]="solar.superficie"
+        placeholder="superficie"
+      />
+      m<sup>2</sup>
+    </label>
+	</div>
+	<div>
+		<label
+      >Luz:
+      <input type="checkbox" [(ngModel)]="solar.luz" placeholder="name" />
+    </label>
+	</div>
+	<div>
+		<label
+      >Agua:
+      <input type="checkbox" [(ngModel)]="solar.agua" placeholder="name" />
+    </label>
+		<button (click)="save()">Guardar</button>
+	</div>
+	<button (click)="goBack()">Volver</button>
+</div>

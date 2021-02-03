@@ -1,0 +1,20 @@
+<h2>Mis Solares</h2>
+
+<div>
+	<label>Dirección del solar
+    <input #direccionSolar />
+  </label>
+	<button (click)="add(direccionSolar.value); direccionSolar.value=''">
+    add
+  </button>
+</div>
+
+<ul class="Solares">
+	<li *ngFor="let solar of solares">
+		<a routerLink="/detail/{{solar.id}}">
+			<span class="badge">{{solar.id}}</span> {{solar.direccion}}
+		</a>
+		<button class="delete" title="delete solar"
+      (click)="delete(solar)">x</button>
+	</li>
+</ul>
