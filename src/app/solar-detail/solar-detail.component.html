@@ -1,32 +1,20 @@
+<h2>Detalles de {{solar.direccion.calle}}<span *ngIf="solar.direccion.calle2!=null"> - {{solar.direccion.calle2}}</span>/{{solar.direccion.numero}}</h2>
 <div *ngIf="solar != undefined">
-	<h2>Detalles de {{solar.direccion | uppercase}}</h2>
 	<div><span>Id: </span>{{solar.id}}</div>
-	<div><span>Direccion: </span>{{solar.direccion}}</div>
+	<div>
+	    <span>Calle: {{solar.direccion.calle}}</span><br>
+	    <span *ngIf="solar.direccion.calle2!=null">Segunda calle: {{solar.direccion.calle2}}<br></span>
+	    <span>Numero: {{solar.direccion.numero}}</span>
+	</div>
 	<div><span>Fecha de subida: </span>{{solar.f_subida | date:"fullDate"}}</div>
-	<div><span>Codpost: </span>{{solar.codpost}}</div>
+	<div><span>Localidad: </span>{{solar.localidad}}</div>
+	<div><span>Superficie: </span>{{solar.superficie}}m<sup>2</sup></div>
+	<div><span>Precio:</span>{{solar.precio}}€</div>
 	<div>
-		<label
-      >Superficie:
-      <input
-        type="number"
-        [(ngModel)]="solar.superficie"
-        placeholder="superficie"
-      />
-      m<sup>2</sup>
-    </label>
+		<label>Luz:<input type="checkbox" [(ngModel)]="solar.luz" placeholder="name" /></label>
 	</div>
 	<div>
-		<label
-      >Luz:
-      <input type="checkbox" [(ngModel)]="solar.luz" placeholder="name" />
-    </label>
+		<label>Agua:<input type="checkbox" [(ngModel)]="solar.agua" placeholder="name"/></label>
 	</div>
-	<div>
-		<label
-      >Agua:
-      <input type="checkbox" [(ngModel)]="solar.agua" placeholder="name" />
-    </label>
-		<button (click)="save()">Guardar</button>
-	</div>
-	<button (click)="goBack()">Volver</button>
+	<div><button (click)="save()">Guardar</button><button (click)="goBack()">Volver</button></div>
 </div>

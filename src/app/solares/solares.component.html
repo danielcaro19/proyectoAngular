@@ -12,9 +12,12 @@
 <ul class="Solares">
 	<li *ngFor="let solar of solares">
 		<a routerLink="/detail/{{solar.id}}">
-			<span class="badge">{{solar.id}}</span> {{solar.direccion}}
+			<span class="badge">{{solar.id}}</span>
+			<a>{{solar.direccion.calle}}</a>
+			<a *ngIf="solar.direccion.calle2!=null">-{{solar.direccion.calle2}}</a>
+			<a>/{{solar.direccion.numero}}</a>
 		</a>
 		<button class="delete" title="delete solar"
-      (click)="delete(solar)">x</button>
+      (click)="delete(solar)" style="color: black;">x</button>
 	</li>
 </ul>
